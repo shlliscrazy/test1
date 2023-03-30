@@ -141,8 +141,8 @@ string encrypt(string message)
 
     for(int i=0; i<message.length(); i+=2)   
     {
-		position p1 = getPosition(message[i]);
-		position p2 = getPosition(message[i+1]);
+	position p1 = getPosition(message[i]);
+	position p2 = getPosition(message[i+1]);
         int x1 = p1.row; int y1 = p1.col;
         int x2 = p2.row; int y2 = p2.col;
         
