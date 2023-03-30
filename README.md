@@ -1,1 +1,3 @@
-A random project involving Playfair cipher, programmed in C++
+A random project involving Playfair cipher
+</p>
+   Programmed in C++
