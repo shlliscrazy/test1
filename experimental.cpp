@@ -21,7 +21,7 @@ void output() {
             cout << keyMatrix[i][j] << " ";
         cout << "\n";
     }
-}
+} //guh
 //function to handle same row encrypt
 string sameRowEncrypt(char mat[5][5], int x, int y, int direction) 
 {
