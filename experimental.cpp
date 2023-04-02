@@ -73,15 +73,17 @@ string sameColEncrypt(char mat[5][5], int x, int y, int direction)
     return string(1, c);
 }
 
-int main() {
+int main() 
+{
     string input, key, option;
-    cout << "key:\n";
+    cout << "key: ";
     getline(cin, key);
     createKeyMatrix(key);
     output();
-    while (1) {
-        cout << "mahoa(v)\n";
-        cout << "giaima(h)\n";
+    while (1) 
+    {
+        cout << "encrypt(v)\n";
+        cout << "decrypt(h)\n";
         cout << "newkey(k)\n";
         getline(cin, option);
         getline(cin, input);
@@ -89,8 +91,9 @@ int main() {
         if (c == 'v') 
         {
             input = createPairs(input);
-            cout << input << endl;
-            cout << encrypt(input) << endl;
+            string temporary = encrypt(input);
+            cout <<"formatted message : "<< input << endl;
+            cout <<"encrypted message : "<<temporary<<"\n";
         }
         else if (c == 'h')
             cout << removeX(decrypt(input)) << endl;
@@ -116,7 +119,8 @@ void replace(string &text, int pos, char from, char to) {
 void findInMatrix(char letter, int &row, int &col) {
     for (int r = 0; r < 5; ++r)
         for (int c = 0; c < 5; ++c)
-            if (letter == keyMatrix[r][c]) {
+            if (letter == keyMatrix[r][c]) 
+            {
                 row = r; col = c;
                 return;
             }
@@ -134,7 +138,7 @@ string encrypt(string text)
     std::cin>>checkcol;
     for (int pos = 0; pos < text.length(); pos += 2) 
     {
-        replace(text, pos, 'j', 'i');
+      //  replace(text, pos, 'j', 'i');
         findInMatrix(text[pos], row1, col1);
         findInMatrix(text[pos+1], row2, col2);
         if (row1 == row2) 
@@ -145,7 +149,7 @@ string encrypt(string text)
         else if (col1 == col2) 
 		{
             output += sameColEncrypt(keyMatrix, row1, col1, checkcol);
-            output += sameColEncrypt(keyMatrix, row1, col1, checkcol);
+            output += sameColEncrypt(keyMatrix, row2, col2, checkcol);
         }
         else 
         {
@@ -159,7 +163,8 @@ string decrypt(string text) {
     string output = "";
     int row1, col1, row2, col2;
     int size = text.length();
-    for (int pos = 0; pos < size; pos += 2) {
+    for (int pos = 0; pos < size; pos += 2) 
+    {
         findInMatrix(text[pos], row1, col1);
         findInMatrix(text[pos+1], row2, col2);
         if (row1 == row2) {
@@ -236,6 +241,11 @@ string createPairs(string input)
     if ((newString.length() & 1) == 1)
         newString += 'x';
     return newString; */
+    for(int i=0; i<input.length(); i++)
+    {
+        if(input[i] == 'j')  input[i] = 'i';
+    }
+    
     for(int i=1; i<input.length(); i+=2) //pair 2 characters
     {
         if(input[i-1] == input[i])  input.insert(i, "x");
