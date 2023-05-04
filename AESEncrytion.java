@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class AESEncrytion 
 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception 
+    {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter plaintext (e.g. HELLOAES12345): ");
