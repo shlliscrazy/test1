@@ -3,8 +3,8 @@ import java.awt.event.*;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -25,6 +25,7 @@ public class AESEncryption2 extends JPanel
     private JTextField decrypted;
     private JLabel decryptedlabel;
     private JButton readfile;
+    private JButton filechooser;
 
     public AESEncryption2() 
     {
@@ -41,6 +42,7 @@ public class AESEncryption2 extends JPanel
         decrypted = new JTextField (5);
         decryptedlabel = new JLabel ("decrypted");
         readfile = new JButton ("Read encrypted file");
+        filechooser = new JButton ("Open file");
 
         //adjust size and set layout
         setPreferredSize (new Dimension (944, 649));
@@ -62,6 +64,7 @@ public class AESEncryption2 extends JPanel
         add (decrypted);
         add (decryptedlabel);
         add (readfile);
+        add (filechooser);
 
         //set component bounds (only needed by Absolute Positioning)
         plaintext.setBounds (370, 190, 215, 40);
@@ -76,6 +79,7 @@ public class AESEncryption2 extends JPanel
         decrypted.setBounds (360, 540, 180, 60);
         decryptedlabel.setBounds (360, 510, 100, 25);
         readfile.setBounds (405, 620, 160, 30);
+        filechooser.setBounds (570, 620, 110, 30);
 
         encryptlabel.addActionListener(new ActionListener() 
         {
