@@ -128,11 +128,8 @@ public class AESEncryption2 extends JPanel
             {
                 try 
                 {
-                    // read the encrypted data from the file
-                    byte[] encryptedData = Files.readAllBytes(Paths.get("encrypted.txt"));
-                    jcomp8.setText(new String(encryptedData));
-
                     // decode the encrypted data from Base64
+                    String encryptedData = jcomp8.getText();
                     byte[] encryptedBytes = Base64.getDecoder().decode(encryptedData);
 
                     // get the key and iv values from the text areas
@@ -162,11 +159,34 @@ public class AESEncryption2 extends JPanel
                 }
             }
         });
+        
+        filechooser.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) 
+            {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(null);
+                if (result == JFileChooser.APPROVE_OPTION) 
+                {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    try 
+                    {
+                        byte[] encryptedData = Files.readAllBytes(selectedFile.toPath());
+                        jcomp8.setText(new String(encryptedData));
+                    }
+                    catch (Exception ex) 
+                    {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+
     }
 
     public static void main (String[] args) 
     {
-        JFrame frame = new JFrame ("YEAHH v4.6");
+        JFrame frame = new JFrame ("YEAHH v4.7");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new AESEncryption2());
         frame.pack();
