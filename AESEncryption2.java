@@ -88,18 +88,6 @@ public class AESEncryption2 extends JPanel
                     String keyString = key.getText();
                     String ivString = iv.getText();
 
-                    // error messages, fool proof but unfortunately not idiot proof
-                    if (keyString.length() < 16 || keyString.length() > 16) 
-                    {
-                        JOptionPane.showMessageDialog(AESEncryption2.this, "Key must be at least 16 characters long", "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                    if (ivString.length() < 16|| ivString.length() > 16) 
-                    {
-                        JOptionPane.showMessageDialog(AESEncryption2.this, "IV must be at least 16 characters long", "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-
                     // convert key and iv strings to byte arrays
                     byte[] keyBytes = keyString.getBytes(StandardCharsets.UTF_8);
                     byte[] ivBytes = ivString.getBytes(StandardCharsets.UTF_8);
@@ -130,7 +118,7 @@ public class AESEncryption2 extends JPanel
                 }
                 catch (Exception ex) 
                 {
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(AESEncryption2.this, ex.getMessage(),"Encryption Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -170,7 +158,7 @@ public class AESEncryption2 extends JPanel
                 } 
                 catch (Exception ex) 
                 {
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(AESEncryption2.this, ex.getMessage(),"Decryption Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
