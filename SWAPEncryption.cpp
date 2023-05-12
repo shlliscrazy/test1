@@ -1,3 +1,5 @@
+//the real purpose of this code is to simply output a 2d array with user plaintext input, prompting user to swap columns to encrypt the message
+//"""""SWAP""""" encryption does not exists, i just named it because idk what to name basically
 #include <iostream>
 #include <string>
 using std::string;
