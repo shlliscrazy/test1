@@ -1,5 +1,4 @@
-//the real purpose of this code is to simply output a 2d array with user plaintext input, prompting user to swap columns to encrypt the message
-//"""""SWAP""""" encryption does not exists, i just named it because idk what to name basically
+//a simple transposition encryption method, currently its prompting user to swapping columns manually for encryption
 #include <iostream>
 #include <string>
 using std::string;
