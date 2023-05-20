@@ -114,10 +114,10 @@ public class AESEncryption2 extends JPanel
                     bos.write(encryptedData);
                     bos.close();
 
-                    // decrypt the plaintext
+                   /* // decrypt the plaintext
                     cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
                     byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
-                    decrypted.setText(new String(decryptedBytes));
+                    decrypted.setText(new String(decryptedBytes)); */
 
                 }
                 catch (Exception ex) 
