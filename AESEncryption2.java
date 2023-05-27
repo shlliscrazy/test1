@@ -36,7 +36,7 @@ public class AESEncryption2 extends JPanel
         plaintextlabel = new JLabel ("plain text");
         keylabel = new JLabel ("key");
         ivlabel = new JLabel ("IV key");
-        encryptlabel = new JButton ("encrypt and save to a file lol");
+        encryptlabel = new JButton ("encrypt and save to a file");
         jcomp8 = new JTextField (5);
         ciphertext = new JLabel ("cipher text");
         decrypted = new JTextField (5);
@@ -49,7 +49,7 @@ public class AESEncryption2 extends JPanel
         setLayout (null);
         
         //set components properties
-        readfile.setToolTipText ("READ THE FUCKING ENCRYPTED FILE");
+        readfile.setToolTipText ("read file");
 
         //add components
         add (plaintext);
